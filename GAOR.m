@@ -1,6 +1,6 @@
- function [IT,CPU,RES,omega,gamma,xk]=GAOR(A,b,xk,u,omega,gamma,eta,maxit)
+function [IT,CPU,RES,omega,gamma,xk]=GAOR(n,A,b,xk,u,omega,gamma,eta,maxit)
 O=u*speye(size(A));
-D=diag(diag(A));
+D=spdiags(diag(A),0,n,n);
 L=-tril(A,-1);
 U=-triu(A,1);
 IT = 0;

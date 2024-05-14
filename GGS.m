@@ -1,5 +1,5 @@
-function [IT,CPU,RES,xk]=GGS(A,b,xk,eta,maxit)
-D=diag(diag(A));
+function [IT,CPU,RES,xk]=GGS(n,A,b,xk,eta,maxit)
+D=spdiags(diag(A),0,n,n);
 L=-tril(A,-1);
 U=-triu(A,1);
 IT = 0;

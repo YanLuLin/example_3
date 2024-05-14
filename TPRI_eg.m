@@ -1,4 +1,5 @@
 function [opt_omega,opt_gamma,opt_tau,opt_IT,opt_cputime,res]=TPRI_eg(m,maxit,omega_0,omega_N,delta_omega,gamma_0,gamma_N,delta_gamma,tau_0,tau_N,delta_tau)
+n=m^2;
 tol=1.0e-6;
 [A,b,xk] = eg_3(m);
 N_omega=floor((omega_N-omega_0)/delta_omega);        
@@ -10,7 +11,7 @@ for j=1:N_omega
         gamma(j,k)=gamma_0+k*delta_gamma;
         for i=1:N_tau
             tau(j,k,i)=tau_0+i*delta_tau;
-            [IT(j,k,i),cputime(j,k,i),res(j,k,i)]=TPRI(A,b,xk,omega(j),gamma(j,k),tau(j,k,i),tol,maxit);
+            [IT(j,k,i),cputime(j,k,i),res(j,k,i)]=TPRI(n,A,b,xk,omega(j),gamma(j,k),tau(j,k,i),tol,maxit);
         end
     end
 end

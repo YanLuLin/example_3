@@ -1,5 +1,5 @@
-function [IT,CPU,RES,omega,gamma,tau]=TPRI(A,b,xk,omega,gamma,tau,eta,maxit)
-D=diag(diag(A));
+function [IT,CPU,RES,omega,gamma,tau]=TPRI(n,A,b,xk,omega,gamma,tau,eta,maxit)
+D=spdiags(diag(A),0,n,n);
 L=-tril(A,-1);
 U=-triu(A,1);
 IT = 0;

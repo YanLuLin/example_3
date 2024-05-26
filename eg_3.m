@@ -7,5 +7,5 @@ M_hat=kron(speye(m,m),S)+spdiags([-1.5*e -0.5*e],[-m m],n,n);
 A=sparse(M_hat+4*speye(n));
 x_star=sparse(zeros(n,1)+(-1).^(1:n)');
 b=A*x_star-abs(x_star);
-xk =sparse(zeros(n,1));
+xk =zeros(n,1);
 end
